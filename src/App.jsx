@@ -83,7 +83,7 @@ function App() {
                 <h1>A fragment of future
                     <p>(from my portfolio)<br/>
                         made with ❤️ by evan<br/>
-                        <a href="https://evansolanoy.vercel.app" target="_blank" rel="noreferrer">
+                        <a href="https://bento.me/evansolanoy" target="_blank" rel="noreferrer">
                         <motion.div className={styles.btn}
                                     whileHover={{scale: 1.2}}
                                     transition={{duration: 0.5, type: "spring"}}
