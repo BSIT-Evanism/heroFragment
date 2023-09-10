@@ -1,0 +1,213 @@
+.cursor {
+  height: 20vh;
+  width: 20vw;
+  background: red;
+}
+
+.outerwrapper {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  overflow: hidden;
+}
+
+.footer {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-weight: 600;
+    text-transform: uppercase;
+
+    p {
+      font-size: 15px;
+
+      .btn {
+        margin: 5px;
+        border-radius: 40px;
+        display: flex;
+        border: 2px solid #102C57;
+        padding: 15px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  width: 100vw;
+  height: 60vh;
+  justify-content: center;
+  margin-bottom: 1rem;
+  margin-top: 8vh;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+
+
+  .hero {
+    width: fit-content;
+    height: fit-content;
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+    transform-origin: center;
+    perspective-origin: center;
+    transform-style: preserve-3d;
+    //transition: 700ms linear;
+    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY));
+
+
+
+    //&::before {
+    //  content: "";
+    //  inset: 0.75rem;
+    //  background: #102C57;
+    //  border-radius: inherit;
+    //  position: absolute;
+    //  opacity: 0.5;
+    //  filter: blur(55px);
+    //  transform: translateZ(-80px);
+    //}
+
+    &:has(:hover) > .inner {
+      &::before {
+        content: "";
+        border: #102C57 solid 2px;
+        position: absolute;
+        inset: -1.75rem;
+        border-radius: 80px;
+        opacity: 1;
+        filter: blur(1px);
+      }
+    }
+
+    .inner {
+      position: relative;
+      width: 60vw;
+      min-width: 40vw;
+      height: 33vw;
+      min-height: 5rem;
+      border-radius: 50px;
+      background: white;
+      box-shadow: 5px 5px 20px #F8F0E5;
+
+      &::before {
+        content: "";
+        border: #102C57 solid 2px;
+        position: absolute;
+        inset: -0.75rem;
+        border-radius: 60px;
+        filter: blur(1px);
+        opacity: 0.5;
+
+        transition: all 600ms cubic-bezier(0.68, -0.57, 0.265, 1.53);
+      }
+
+
+      .contain {
+        position: fixed;
+        top: 10%;
+        left: -20%;
+        width: 30%;
+        height: 80%;
+        z-index: 10;
+
+
+
+        .float {
+
+          transform-origin: center;
+          position: fixed;
+          border-radius: 40px;
+          top: 10%;
+          left: -20%;
+          width: 30%;
+          height: 80%;
+          box-shadow: 5px 5px 20px #F8F0E5;
+          --webkit-backface-visibility: hidden;
+          background: white;
+          z-index: 10;
+          transition: 400ms ease;
+
+          &::before {
+            content: "";
+            border: #102C57 solid 2px;
+            position: absolute;
+            inset: 0.75rem;
+            border-radius: 30px;
+            filter: blur(0.5px);
+            opacity: 0.5;
+          }
+        }
+
+        .flow {
+          transform: rotateY(180deg);
+        }
+      }
+
+
+      .callFloat {
+        position: absolute;
+        border-radius: 50px;
+        bottom: -10%;
+        right: -15%;
+        width: 30%;
+        height: 15%;
+        box-shadow: 5px 5px 20px #F8F0E5;
+        --webkit-backface-visibility: hidden;
+        background: white;
+        z-index: 10;
+
+
+        &::before {
+          content: "";
+          border: #102C57 solid 2px;
+          position: absolute;
+          inset: 0.4rem;
+          border-radius: 60px;
+          opacity: 0.5;
+        }
+
+        .ping {
+          background: white;
+          position: absolute;
+          top: 10px;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50px;
+
+          .innerPing {
+            width: 15px;
+            height: 15px;
+            border-radius: 2rem;
+            background: green;
+            animation: 1.5s cubic-bezier(0.76, 0, 0.55, 0.75) 0.5s infinite pulse;
+
+            @keyframes pulse {
+              from {
+                transform: scale(1);
+                opacity: 1
+              }
+              to {
+                transform: scale(1.5);
+                opacity: 0;
+              }
+            }
+          }
+        }
+      }
+
+
+
+    }
+  }
+}
+
+
